@@ -1,16 +1,19 @@
+using System;
 using UnityEngine;
 
 public class ObjectController : MonoBehaviour
 {
+
     public void RotateLeft()
     {
+
         // findobjects with tag "modelObject"
         GameObject[] objects = GameObject.FindGameObjectsWithTag("modelObject");
 
         foreach (GameObject obj in objects)
         {
             obj.transform.Rotate(0, 15, 0);
-        }   
+        }
     }
 
     public void RotateRight()
@@ -21,28 +24,46 @@ public class ObjectController : MonoBehaviour
         foreach (GameObject obj in objects)
         {
             obj.transform.Rotate(0, -15, 0);
-        }   
+        }
     }
 
     public void PopUp()
+    {
+        // findobjects with tag "modelObject"
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("infoLemon");
+
+        foreach (GameObject obj in objects)
+        {
+
+            Canvas canvas = obj.GetComponent<Canvas>();
+
+            if (canvas != null)
+            {
+                Debug.Log(canvas);
+                canvas.enabled = !canvas.enabled;
+            }
+        }
+    }
+    /*public void PopUp()
     {
         // findobjects with tag "modelObject"
         GameObject[] objects = GameObject.FindGameObjectsWithTag("modelObject");
 
         foreach (GameObject obj in objects)
         {
-            Canvas canvas = obj.GetComponentInChildren<Canvas>();
-            if (canvas != null)
-            {
-                canvas.enabled = !canvas.enabled;
-            }   
-        }   
-    }  
+             Canvas canvas = obj.GetComponentInChildren<Canvas>();
+             if (canvas != null)
+             {
+                 Debug.Log("Click");
+                 canvas.enabled = !canvas.enabled;
+             }
+        }
+    }*/
 
     public void PlayAudio()
     {
         // findobjects with tag "modelObject"
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("modelObject");
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("infoAudio");
 
         foreach (GameObject obj in objects)
         {
@@ -57,7 +78,27 @@ public class ObjectController : MonoBehaviour
                 {
                     audioSource.Play();
                 }
-            }   
+            }
         }
-    } 
+    }
+
+    public void MoveUp()
+    {
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("modelObject");
+
+        foreach (GameObject obj in objects)
+        {
+            obj.transform.Translate(0, 0.05f, 0, Space.Self);
+        }
+    }
+
+    public void MoveDown()
+    {
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("modelObject");
+
+        foreach (GameObject obj in objects)
+        {
+            obj.transform.Translate(0, -0.05f, 0, Space.Self);
+        }
+    }
 }
