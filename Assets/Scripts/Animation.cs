@@ -26,7 +26,7 @@ public class Animation : MonoBehaviour
             // Si la escala se acerca lo suficiente a su tamaño original, detener la animación
             if (transform.localScale.x > 0.95f)
             {
-                // Aeguramos que la escala final sea exactamente la original
+                // Aseguramos que la escala final sea exactamente la original
                 transform.localScale = Vector3.one;
                 appearing = false;
             }
