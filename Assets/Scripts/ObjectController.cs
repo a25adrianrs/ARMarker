@@ -29,7 +29,7 @@ public class ObjectController : MonoBehaviour
 
     public void PopUp()
     {
-        // findobjects with tag "modelObject"
+        // findobjects with tag "infoLemon"
         GameObject[] objects = GameObject.FindGameObjectsWithTag("infoLemon");
 
         foreach (GameObject obj in objects)
@@ -44,25 +44,11 @@ public class ObjectController : MonoBehaviour
             }
         }
     }
-    /*public void PopUp()
-    {
-        // findobjects with tag "modelObject"
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("modelObject");
 
-        foreach (GameObject obj in objects)
-        {
-             Canvas canvas = obj.GetComponentInChildren<Canvas>();
-             if (canvas != null)
-             {
-                 Debug.Log("Click");
-                 canvas.enabled = !canvas.enabled;
-             }
-        }
-    }*/
 
     public void PlayAudio()
     {
-        // findobjects with tag "modelObject"
+        // findobjects with tag "infoAudio"
         GameObject[] objects = GameObject.FindGameObjectsWithTag("infoAudio");
 
         foreach (GameObject obj in objects)
