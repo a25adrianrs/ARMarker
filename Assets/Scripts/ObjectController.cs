@@ -4,6 +4,8 @@ using UnityEngine;
 public class ObjectController : MonoBehaviour
 {
 
+    //  El meotodo RotateLeft, RotateRight, PopUp, PlayAudio, MoveUp y MoveDown deben encontrar los objetos 
+    //con el tag "modelObject" y realizar las siguientes acciones:
     public void RotateLeft()
     {
 
@@ -16,6 +18,8 @@ public class ObjectController : MonoBehaviour
         }
     }
 
+    // El moetodo RotateRight es similar a RotateLeft pero con un valor negativo para rotar en sentido contrario
+
     public void RotateRight()
     {
         // findobjects with tag "modelObject"
@@ -27,6 +31,8 @@ public class ObjectController : MonoBehaviour
         }
     }
 
+    // El metodo PopUp debe encontrar los objetos con el tag "infoLemon" y activar o desactivar el 
+    // componente Canvas para mostrar u ocultar la información adicional sobre el limón.
     public void PopUp()
     {
         // findobjects with tag "infoLemon"
@@ -46,6 +52,8 @@ public class ObjectController : MonoBehaviour
     }
 
 
+    // El metodo PlayAudio debe encontrar los objetos con el tag "infoAudio" y 
+    // reproducir o pausar el audio asociado a cada objeto.
     public void PlayAudio()
     {
         // findobjects with tag "infoAudio"
@@ -68,6 +76,8 @@ public class ObjectController : MonoBehaviour
         }
     }
 
+    // El metodo MoveUp debe encontrar los objetos con el tag "modelObject" 
+    //y moverlos hacia arriba en el eje Y, mientras que el metodo MoveDown debe moverlos hacia abajo en el mismo eje.
     public void MoveUp()
     {
         GameObject[] objects = GameObject.FindGameObjectsWithTag("modelObject");
@@ -78,6 +88,8 @@ public class ObjectController : MonoBehaviour
         }
     }
 
+    // El metodo MoveUp debe encontrar los objetos con el tag "modelObject" 
+    //y moverlos hacia arriba en el eje Y, mientras que el metodo MoveDown debe moverlos hacia abajo en el mismo eje.
     public void MoveDown()
     {
         GameObject[] objects = GameObject.FindGameObjectsWithTag("modelObject");
