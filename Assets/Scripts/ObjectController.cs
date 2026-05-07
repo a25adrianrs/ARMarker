@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class ObjectController : MonoBehaviour
 {
@@ -99,4 +100,46 @@ public class ObjectController : MonoBehaviour
             obj.transform.Translate(0, -0.05f, 0, Space.Self);
         }
     }
+    // El metodo SpinObject busca todos los objetos con el tag "modelObject"
+    // y ejecuta una animación de giro sobre ellos.
+    public void SpinObject()
+    {
+        // Buscar todos los objetos con el tag "modelObject"
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("modelObject");
+
+        // Recorrer todos los objetos encontrados
+        foreach (GameObject obj in objects)
+        {
+            // Iniciar la animación de giro
+            StartCoroutine(Spin(obj));
+        }
+    }
+
+    // Coroutine que realiza una vuelta completa del objeto
+    // Coroutine que hace girar el objeto 360 grados
+    private IEnumerator Spin(GameObject obj)
+    {
+        // Cantidad de grados rotados
+        float rotated = 0f;
+
+        // Velocidad de giro
+        float rotationSpeed = 360f;
+
+        // Mientras no complete la vuelta
+        while (rotated < 360f)
+        {
+            // Calcular cuanto girar este frame
+            float rotationThisFrame = rotationSpeed * Time.deltaTime;
+
+            // Girar el objeto en el eje Y
+            obj.transform.Rotate(0, rotationThisFrame, 0);
+
+            // Sumar los grados girados
+            rotated += rotationThisFrame;
+
+            // Esperar al siguiente frame
+            yield return null;
+        }
+    }
+
 }
